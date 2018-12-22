@@ -1,9 +1,9 @@
 /*
- * Tic Tac Toe Project
+ * Tic Tac Toe Project 
  * Author: Gurkirat Jandu
  */
 
-import java.awt.FlowLayout; 
+import java.awt.FlowLayout;  
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -14,26 +14,85 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
+/**
+ * The tick class
+ * @author Gurkirat Jandu
+ *
+ */
 public class Tic {
 
+	/**
+	 * The main JFrame for the game.
+	 */
 	private JFrame myFrame; 
+	/**
+	 * The Jframe that holds the reset button.
+	 */
 	private JFrame Reset; 
+	/**
+	 * The topleft slot in the game.
+	 */
 	private JButton topLeft;
+	/**
+	 * The top middle slot in the game.
+	 */
 	private JButton top;
+	/**
+	 * The top right slot.
+	 */
 	private JButton topRight;
+	/**
+	 * The middle left slot.
+	 */
 	private JButton middleLeft;
+	/**
+	 * The center slot.
+	 */
 	private JButton middle;
+	/**
+	 * The middle right slight.
+	 */
 	private JButton middleRight;
+	/**
+	 * The bottom left slot.
+	 */
 	private JButton bottomLeft;
+	/**
+	 * The middle-bottom slot.
+	 */
 	private JButton bottom;
+	/**
+	 * The bottom right slot.
+	 */
 	private JButton bottomRight;
+	/**
+	 * The reset button that resets the entire game.
+	 */
 	private JButton myReset; 
+	/**
+	 * ImageIcon representing the X's.
+	 */
 	private ImageIcon XIcon;
+	/**
+	 * ImageIcon representing the O's.
+	 */
 	private ImageIcon OIcon;
-	private String X = "src/Images/letter_x.jpg";  
-	private String O = "src/Images/letter_o.jpg"; 
+	/**
+	 * String for the X image file.
+	 */
+	private String X = "src/Images/letter_x.jpg";
+	/**
+	 * String for the O image file.
+	 */
+	private String O = "src/Images/letter_o.jpg";
+	/**
+	 * boolean value that helps determine who's turn it is.
+	 */
 	private static boolean isX = true;
 
+	/**
+	 * Class constructor that initializes the frames and application.
+	 */
 	public Tic () {
 	 myFrame = new JFrame(); 
 	 myFrame.setLayout(new GridLayout(3,3));
@@ -42,6 +101,9 @@ public class Tic {
 	 createandshowGui(); 
 	}
 	
+	/**
+	 * Adds the buttons and all functionality to the JFrames. 
+	 */
 	private void createandshowGui() {
 		JOptionPane.showMessageDialog(null, "Remember, X goes first!");
 		XIcon = new ImageIcon(X); 
@@ -97,8 +159,16 @@ public class Tic {
 		
 	}
 	
+	/**
+	 * Actionlistener class for the reset button.
+	 * @author Gurkirat Jandu
+	 *
+	 */
 	private class ResetListener implements ActionListener {
-
+		
+		/**
+		 * When reset is clicked, all slots become enabled and the images get removed.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent theEvent) {
 			topLeft.setEnabled(true);
@@ -124,8 +194,17 @@ public class Tic {
 		
 	}
 	
+	/**
+	 * Actionlistener for each of the slots on the main JFrame.
+	 * @author Gurkirat Jandu
+	 *
+	 */
 	private class ButtonListener implements ActionListener {
-
+		
+	/**
+	 * When a slot gets clicked, an X or O image gets added to it and
+	 * that slot becomes disabled so it cannot be clicked again. 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent E) {
 		if (E.getSource() == topLeft) {
